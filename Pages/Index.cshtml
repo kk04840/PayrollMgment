@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+    <img src="https://hrsoftware.in/wp-content/uploads/2017/02/What-Is-Payroll-Management-System-800x480.jpg">
+</div>
+<hr/>
+<div class="container">
+    <h1>Available Staff Details will be Shown Below </h1>
+    <hr/>
+    <div class="row">
+        @foreach (var item in Model.Employee)
+        {
+            <div class="col-md-4">
+                <h1 class="text-center"> @Html.DisplayFor(modelItem => item.Name)</h1><hr/>
+                <img src="https://www.ogc.org/pub/www/files/images/MF2017_IMG_3216_crop.jpg" class="img-thumbnail" />
+                <h1>@Html.DisplayFor(modelItem => item.Designation)</h1>
+                <h3 class="btn btn-warning"><a asp-page="/Staff/Details" asp-route-id="@item.Id">View More </a></h3>
+            </div>
+        }
+    </div>
+</div>
+
+
